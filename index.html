@@ -1,19 +1,23 @@
 <!DOCTYPE html> 
 <html lang=" ="en">
 <head>
-<meta charset=" UTF-8" >
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta charset=" UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-     <title>Ilk Web Projem</title>
+    <title>Ilk Web Projem</title>
 
 </head>
 
+<!-- 193+, 228+, 247+, 298, 340, 409, 423, 486,
+    500, 600, 700, 715, 734, 767, 800, 850, 
+    870, 900, 950, 981, 998, 1000-->
 
 <body>
 
-    <header> Kubra Nimet Akmansoy
-    
-    
+    <header>
+        Kubra Nimet Akmansoy
+
+
         <nav aria-label=" Ana menu">
             <!-- Tarayýcýya ve ekran okuyuculara Bu bölüm gezinme menüsüdür bilgisini verir.(nav)-->
 
@@ -66,12 +70,75 @@
                 <h2>Projelerim</h2>
                 <div class="proje-kartlari">
                     <!--  buraya proje kartlarý ekleyeceðiz-->
+                    <article>
+                        <!-- Later , ekleyeceðiz-->
+                        <h3>Kiþisel Web Sitesi ve Görev Takip Uygulamasý</h3>
+
+                        <p>
+                            Kendimi, ilgi alanlarýmý ve projelerimi tanýttýðým;
+                            görev ekleme, tamamlama ve silme özellikleriyle
+                            günlük iþlerimi takip etmeyi amaçladýðým ilk web projem.
+                        </p>
+
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                        <p>Durum: Geliþtiriliyor</p>
+                    </article>
+
+                    <article>
+                        <h3>Üyelikli Not Uygulamasý</h3>
+
+                        <p>
+                            Kullanýcýlarýn hesap oluþturarak giriþ yapabileceði,
+                            kiþisel notlarýný ekleyip düzenleyebileceði ve
+                            silebileceði bir not uygulamasý geliþtirmeyi planlýyorum.
+                        </p>
+
+                        <p>Durum: Planlandý</p>
+                    </article>
+
+                    <article>
+                        <h3>Randevu Sistemi</h3>
+
+                        <p>
+                            Kullanýcýlarýn uygun gün ve saatleri görüntüleyerek
+                            randevu oluþturabileceði, randevularýný takip
+                            edebileceði ve iptal edebileceði bir sistem
+                            geliþtirmeyi planlýyorum.
+                        </p>
+
+                        <p>Durum: Planlandý</p>
+                    </article>
                 </div>
+            </section>
+            <section id="gorevler">
+                <h2>Gorevlerim</h2>
+
+                <p>
+                    Yapmak istediðin görevleri ekleyebilir, bitirdiðin
+                    görevleri tamamlandý olarak iþaretleyebilir ve
+                    artýk ihtiyacýn olmayan görevleri silebilirsin.
+                </p>
+
+                <form id="gorev-formu">
+                    <label for="gorev-metni">Yeni Gorev</label>
+                    <input type="text" id="gorev-metni" name="gorev" placeholder="javascript calis" required maxlength="200" aria-describedby="gorev-hatasi">
+
+                    <button type="submit">Ekle</button>
+
+
+                </form>
+
+                <p id="gorev-hatasi" hidden></p>
             </section>
         </main>
     </header>
     <h1>Merhaba ilk web sitem</h1>
-    
+
     <p>Web programming ile ilgili ilk denemem.</p>
     <p> Yeaghhhh</p>
     <p> Ben aklimdaki web uygulamalarini gerceklestirmek istiyorum</p>
