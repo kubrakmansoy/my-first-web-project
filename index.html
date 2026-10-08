@@ -134,6 +134,26 @@
                 </form>
 
                 <p id="gorev-hatasi" hidden></p>
+
+                <p id="gorev-sayaci">0 görev kaldý</p>
+
+                <div role="group" aria-label="Gorev filtreleri">
+                    <button data-filtre="tumu" aria-pressed="true">Tümü</button>
+                    <button data-filtre="aktif" aria-pressed="false">Aktif</button>
+                    <button data-filtre="tamamlanan" aria-pressed="false">Tamamlanan</button>
+
+
+
+                </div>
+                <ul id="gorev-listesi">
+                    <li>
+                        <input type="checkbox" id="ornek-gorev">
+                        <label for="ornek-gorev">HTML calis</label>
+                        <button type="button" aria-label="HTML calýs görevini sil"> Sil</button>
+                    </li>
+                </ul>
+                <p id="bos-mesaj" hidden>Henuz gorev eklemedin</p>
+                <p id="durum-mesaji" role="status"></p>
             </section>
         </main>
     </header>
