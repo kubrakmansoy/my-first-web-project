@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <title>Ilk Web Projem</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <!-- 193+, 228+, 247+, 298, 340, 409, 423, 486,
 500, 600, 700, 715, 734, 767, 800, 850,
@@ -15,27 +18,34 @@
     <a href="#ana-icerik">Ana icerige gec</a>
 
     <header>
-        Kubra Nimet Akmansoy
+
+        <div class="kapsayici header-icerigi">
+            <p class="site-adi">Kubra Nimet Akmansoy</p>
 
 
-        <nav aria-label=" Ana menu">
-            <!-- Tarayiciya ve ekran okuyuculara Bu bolum gezinme menusudur bilgisini verir.(nav)-->
+            <nav aria-label=" Ana menu">
+                <!-- Tarayiciya ve ekran okuyuculara Bu bolum gezinme menusudur bilgisini verir.(nav)-->
 
-            <ul>
-                <!-- # isareti baglantinn ayni sayfada bir blume gidecegini belirtir . sayfada id="anasayfa " yazan ogeyi bulur-->
-                <li><a href="#anasayfa"> Ana Sayfa</a></li>
-                <li> <a href="#hakkimda"> Hakkimda</a></li>
-                <li> <a href="#projeler"> Projelerim</a></li>
-                <li> <a href="#gorevler"> Gorevlerim</a></li>
-            </ul>
+                <ul>
+                    <!-- # isareti baglantinn ayni sayfada bir blume gidecegini belirtir . sayfada id="anasayfa " yazan ogeyi bulur-->
+                    <li><a href="#anasayfa"> Ana Sayfa</a></li>
+                    <li> <a href="#hakkimda"> Hakkimda</a></li>
+                    <li> <a href="#projeler"> Projelerim</a></li>
+                    <li> <a href="#gorevler"> Gorevlerim</a></li>
+                </ul>
 
 
-        </nav>
-        <main id="ana-icerik">
+            </nav>
+        </div>
+
+        <header/>
+        <main id="ana-icerik" class="kapsayici">
 
             <section id="anasayfa">
-                <p> Hayalini kurdugum hayati her gun attigimm kucuk ama kararli adimlarla gercege donusturmek; ogrenen, ureten, kendi ayaklari uzerinde duran ve cevresine fayda saglayan biri olmak istiyorum. Dunyayi daha iyi bir yere cevirmek icin elimden geleni yapmak istiyorum. Basladigim isleri emekle buyutmek, zorluklar karsisinda cesaretimi korumak ve basarilarimi sevdiklerimle paylasmak istiyorum. Geriye baktigimda, denemekten korkmadigim, kendime verdigim sozleri tuttugum ve degerlerimden vazgecmeden ilerledigim bir hayat gormek istiyorum.</p>
+                <h1>Merhaba, ben Kubra Nimet Akmansoy!</h1>
 
+                <p> Hayalini kurdugum hayati her gun attigimm kucuk ama kararli adimlarla gercege donusturmek; ogrenen, ureten, kendi ayaklari uzerinde duran ve cevresine fayda saglayan biri olmak istiyorum. Dunyayi daha iyi bir yere cevirmek icin elimden geleni yapmak istiyorum. Basladigim isleri emekle buyutmek, zorluklar karsisinda cesaretimi korumak ve basarilarimi sevdiklerimle paylasmak istiyorum. Geriye baktigimda, denemekten korkmadigim, kendime verdigim sozleri tuttugum ve degerlerimden vazgecmeden ilerledigim bir hayat gormek istiyorum.</p>
+                <br>
                 <p>Bu uygulamanin temel amaci, kullanicilarin hedeflerini kucuk ve uygulanabilir adimlara bolerek planli bicimde ilerlemelerine yardimci olmaktir. Kullanici, yapmak istedigi gorevi tamamlanacak gorev kutusuna yazar ve bir yapay zeka ile bu gorevi yapay zekadan 1000 adima bolmesine ister . Yapay zekanin hazirladigi listeyi , Siralama kutucuguna yapistirir ve gorev uygulamasi baslatilmis olur. Kullanici teker teker siralamaya gore calisir. Buyuk hedeflerin yarattigi belirsizlik azalirken her tamamlanan adim, ilerlemesini fark etmesini ve motivasyonunu korumasini saglar. Boylece uygulama, kullanicinin zamanini daha bilincli degerlendirmesine, duzenli calisma aliskanligi kazanmasina ve hedeflerine ulasirken kendi gelisimini somut olarak gormesine katkida bulunur.</p>
 
                 <a href="#gorevler">Gorevlerime git</a>
@@ -43,7 +53,7 @@
 
             <section id="hakkimda">
                 <h2>Hakkimda</h2>
-                <h1>Merhaba, ben Kubra Nimet Akmansoy!</h1>
+                
 
 
                 <p>
@@ -168,7 +178,7 @@
 
             <a href="https://github.com/kubrakmansoy?tab=repositories">GitHub deposunu goruntule</a>
         </footer>
-    </header>
+    
     <h1>Merhaba ilk web sitem</h1>
 
     <p>Web programming ile ilgili ilk denemem.</p>
@@ -177,4 +187,3 @@
 </body>
 </html>
 
-```
