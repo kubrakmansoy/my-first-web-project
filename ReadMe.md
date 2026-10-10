@@ -42,7 +42,30 @@ görevlerimi takip edebildiğim bir web sitesi geliştirmek.
 - Görevler farklı cihazlar arasında otomatik eşitlenmeyecek.
 - Tarayıcının site verileri temizlenirse görevler silinebilecek.
 
--Kullanıcılar görevleri paylaşamayacak veya başkalarının görevlerini göremeyecek.
+- Kullanıcılar görevleri paylaşamayacak veya başkalarının görevlerini göremeyecek.
+
+## JavaScript Alıştırmaları
+
+Uygulamanın görev işlemlerine geçmeden önce
+`alistirmalar/javascript-temelleri.js` dosyasında şu konuları çalıştım:
+
+- const ve let ile değişken tanımlama.
+- Metin, sayı ve boolean değerleri; typeof ile tür kontrolü.
+- Matematiksel işlemler ve karşılaştırmalar.
+- Metin birleştirme, şablon metinler ve uzunluk kontrolü.
+- trim, trimStart ve trimEnd ile boşluk temizleme.
+- Mantıksal operatörler ve if/else koşulları.
+- Fonksiyonlar, parametreler, return ve ok fonksiyonları.
+- Dizilerde öğe okuma, ekleme ve değiştirme.
+- for...of ve forEach ile dizileri dolaşma.
+- map, filter ve find ile dizi işlemleri.
+- Görev nesneleri oluşturma ve alanlarını değiştirme.
+- JSON.stringify ve JSON.parse ile veri dönüştürme.
+- try...catch ile hata yakalama.
+- Array.isArray ile dizi kontrolü.
+
+Alıştırma dosyası projede korunmuştur.
+Uygulamanın çalışmasını etkilememesi için HTML bağlantısı kaldırılmıştır.
 
 
 
