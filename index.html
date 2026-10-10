@@ -7,15 +7,16 @@
 
     <title>Ilk Web Projem</title>
 
+
     <link rel="stylesheet" href="style.css">
 
 </head>
-<!-- 193+, 228+, 247+, 298, 340, 409, 423, 486,
+<!-- 193+, 228+, 247+, 298+, 340+, 409+, 423+, 486+,
 500, 600, 700, 715, 734, 767, 800, 850,
 870, 900, 950, 981, 998, 1000-->
 <body>
 
-    <a href="#ana-icerik">Ana icerige gec</a>
+    <a class="atlama-baglantisi" href="#ana-icerik">Ana icerige gec</a>
 
     <header>
 
@@ -96,7 +97,7 @@
                             <li>JavaScript</li>
                         </ul>
 
-                        <p>Durum: Gelistiriliyor</p>
+                        <p class="rozet">Durum: Gelistiriliyor</p>
                     </article>
 
                     <article>
@@ -108,7 +109,7 @@
                             silebilecegi bir not uygulamasi gelistirmeyi planliyorum.
                         </p>
 
-                        <p>Durum: Planlandi</p>
+                        <p class="rozet">Durum: Planlandi</p>
                     </article>
 
                     <article>
@@ -121,7 +122,7 @@
                             gelistirmeyi planliyorum.
                         </p>
 
-                        <p>Durum: Planlandi</p>
+                        <p class="rozet">Durum: Planlandi</p>
                     </article>
                 </div>
             </section>
@@ -147,7 +148,7 @@
 
                 <p id="gorev-sayaci">0 gorev kaldi</p>
 
-                <div role="group" aria-label="Gorev filtreleri">
+                <div class="gorev-filtreleri"  role="group" aria-label="Gorev filtreleri">
                     <button data-filtre="tumu" aria-pressed="true">Tumu</button>
                     <button data-filtre="aktif" aria-pressed="false">Aktif</button>
                     <button data-filtre="tamamlanan" aria-pressed="false">Tamamlanan</button>
@@ -157,14 +158,14 @@
 
                 </div>
                 <ul id="gorev-listesi">
-                    <li>
+                    <li class="gorev">
                         <input type="checkbox" id="ornek-gorev">
                         <label for="ornek-gorev">HTML calis</label>
                         <button type="button" aria-label="HTML calis gorevini sil"> Sil</button>
                     </li>
                 </ul>
                 <p id="bos-mesaj" hidden>Henuz gorev eklemedin</p>
-                <p id="durum-mesaji" role="status"></p>
+                <p id="durum-mesaji" class="ekran-okuyucu" role="status"></p>
             </section>
         </main>
 

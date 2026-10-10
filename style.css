@@ -1,10 +1,9 @@
-﻿body {
-
-    .kapsayici {
-        max-width: var(--icerik-genisligi);
-        margin-inline: auto;
-        padding-inline: 20px;
-    }
+﻿
+.kapsayici {
+    max-width: var(--icerik-genisligi);
+    margin-inline: auto;
+    padding-inline: 20px;
+}
 
     :root {
         --arka-plan: #f3f4f6;
@@ -19,14 +18,18 @@
         --icerik-genisligi: 1100px;
     }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        font-family: system-ui,sans-serif;
-        line-height: 1.6;
-        color: #1f2937;
-        background-color: #f3f4f6;
-    }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--metin-rengi);
+    background-color: var(--arka-plan);
+}
 
     .site-adi {
         font-weight: 700;
@@ -127,4 +130,331 @@
     main h3 {
         font-size: 20px;
     }
+
+
+.proje-kartlari {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
+
+    
+    .proje-kartlari article {
+        background-color: var(--kart-rengi);
+        padding: 24px;
+        border: 1px solid var(--kenarlik-rengi);
+        border-radius: var(--kose-yaricapi);
+    }
+
+    
+    .proje-kartlari h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    
+    .proje-kartlari article > p:not(.rozet) {
+        color: var(--ikincil-metin);
+    }
+
+    
+    .proje-kartlari ul {
+        padding-left: 20px;
+        margin-block: 16px;
+    }
+
+    .proje-kartlari li {
+        margin-bottom: 6px;
+    }
+
+    
+    .proje-kartlari .rozet {
+        display: inline-block;
+        background-color: var(--arka-plan);
+        color: var(--metin-rengi);
+        padding: 6px 12px;
+        border-radius: var(--kose-yaricapi);
+    }
+
+
+#gorevler {
+    background-color: var(--kart-rengi);
+    padding: 24px;
+    border: 1px solid var(--kenarlik-rengi);
+    border-radius: var(--kose-yaricapi);
+}
+
+
+#gorev-formu {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    row-gap: 8px;
+}
+
+    
+    #gorev-formu label {
+        grid-column: 1 / -1;
+        font-weight: 600;
+    }
+
+#gorev-metni {
+    width: 100%;
+    min-width: 0;
+    font: inherit;
+    padding: 12px;
+    border: 1px solid var(--kenarlik-rengi);
+    border-radius: var(--kose-yaricapi);
+    background-color: var(--kart-rengi);
+}
+
+    
+    #gorev-metni:focus-visible {
+        outline: 3px solid var(--odak-rengi);
+        outline-offset: 3px;
+    }
+
+
+    
+    #gorev-metni::placeholder {
+        color: var(--ikincil-metin);
+        opacity: 1;
+    }
+
+
+button {
+    font: inherit;
+    padding: 10px 16px;
+    min-height: 44px;
+    border: 1px solid var(--kenarlik-rengi);
+    border-radius: var(--kose-yaricapi);
+    cursor: pointer;
+}
+
+
+#gorev-formu button[type="submit"] {
+    background-color: var(--vurgu-rengi);
+    color: var(--kart-rengi);
+}
+
+    
+    #gorev-formu button[type="submit"]:hover {
+        background-color: var(--odak-rengi);
+    }
+
+    
+    #gorev-formu button[type="submit"]:focus-visible {
+        outline: 3px solid var(--odak-rengi);
+        outline-offset: 3px;
+    }
+
+#gorev-hatasi {
+    color: var(--hata-rengi);
+    margin-top: 8px;
+}
+
+#gorev-metni[aria-invalid="true"] {
+    border-color: var(--hata-rengi);
+}
+
+    #gorev-sayaci {
+        color: var(--ikincil-metin);
+    }
+
+
+.gorev-filtreleri {
+    display: flex;
+    gap: 12px;
+}
+
+    
+    .gorev-filtreleri button {
+        background-color: var(--kart-rengi);
+        color: var(--metin-rengi);
+        border: 1px solid var(--kenarlik-rengi);
+    }
+
+        
+        .gorev-filtreleri button[aria-pressed="true"] {
+            background-color: var(--vurgu-rengi);
+            color: var(--kart-rengi);
+            border-color: var(--vurgu-rengi);
+        }
+
+        
+        .gorev-filtreleri button:hover {
+            border-color: var(--odak-rengi);
+            text-decoration: underline;
+        }
+
+        
+        .gorev-filtreleri button:focus-visible {
+            outline: 3px solid var(--odak-rengi);
+            outline-offset: 3px;
+        }
+
+
+
+#gorev-listesi {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.gorev {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid var(--kenarlik-rengi);
+}
+
+    
+    .gorev input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        accent-color: var(--vurgu-rengi);
+    }
+
+    
+    .gorev label {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    
+    .gorev button {
+        color: var(--hata-rengi);
+        background-color: var(--kart-rengi);
+        border-color: var(--hata-rengi);
+        flex-shrink: 0;
+    }
+
+        
+        .gorev button:hover {
+            background-color: var(--hata-rengi);
+            color: var(--kart-rengi);
+        }
+
+        
+        .gorev button:focus-visible {
+            outline: 3px solid var(--odak-rengi);
+            outline-offset: 3px;
+        }
+
+    .gorev.tamamlandi label {
+        text-decoration: line-through;
+        color: var(--ikincil-metin);
+    }
+
+
+#bos-mesaj {
+    color: var(--ikincil-metin);
+    padding: 16px;
+    text-align: center;
+}
+
+
+footer {
+    border-top: 1px solid var(--kenarlik-rengi);
+    padding-block: 24px;
+    color: var(--ikincil-metin);
+}
+
+    
+    footer a {
+        color: var(--vurgu-rengi);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+
+.atlama-baglantisi {
+    position: absolute;
+    left: -10000px;
+    top: 12px;
+    padding: 12px 16px;
+    background-color: var(--vurgu-rengi);
+    color: var(--kart-rengi);
+    border-radius: var(--kose-yaricapi);
+    z-index: 1000;
+}
+
+    
+    .atlama-baglantisi:focus {
+        left: 12px;
+        outline: 3px solid var(--odak-rengi);
+        outline-offset: 3px;
+    }
+
+
+/* 484–485: Görsel olarak gizli, ekran okuyucuya açık */
+.ekran-okuyucu {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 486: hidden öğeleri gizli tut */
+[hidden] {
+    display: none !important;
+}
+
+/* 492–497: Mobil düzen */
+@media (max-width: 768px) {
+    .header-icerigi {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .proje-kartlari {
+        grid-template-columns: 1fr;
+    }
+
+    #gorev-formu {
+        grid-template-columns: 1fr;
+    }
+
+        #gorev-formu button[type="submit"] {
+            width: 100%;
+        }
+
+    .gorev-filtreleri {
+        flex-wrap: wrap;
+    }
+
+    #hakkimda,
+    #gorevler,
+    .proje-kartlari article {
+        padding: 16px;
+    }
+
+    #anasayfa {
+        padding-block: 24px;
+    }
+
+        #anasayfa h1 {
+            font-size: 32px;
+        }
+
+
+
+
+
+
+
