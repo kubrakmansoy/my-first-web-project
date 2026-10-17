@@ -42,6 +42,27 @@ function gorevleriCiz() {
         checkbox.type = "checkbox";
         checkbox.id = `gorev-${gorev.id}`;
         checkbox.checked = gorev.tamamlandi;
+
+        checkbox.addEventListener("change", function () {
+            const ilgiliGorev = gorevler.find(
+                kayit => kayit.id === gorev.id
+            );
+
+            if (!ilgiliGorev) {
+                return;
+            }
+
+            ilgiliGorev.tamamlandi = checkbox.checked;
+
+            durumMesaji.textContent = ilgiliGorev.tamamlandi
+                ? `"${ilgiliGorev.metin}" görevi tamamlandı.`
+                : `"${ilgiliGorev.metin}" görevi yeniden aktifleştirildi.`;
+
+            gorevleriCiz();
+        });
+
+        
+
         const label = document.createElement("label");
         label.htmlFor = checkbox.id;
         label.textContent = gorev.metin;
