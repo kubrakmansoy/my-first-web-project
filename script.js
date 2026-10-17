@@ -31,9 +31,13 @@ const gorevHatasi = document.getElementById("gorev-hatasi");
 const gorevMetni = document.getElementById("gorev-metni");
 const gorevFormu = document.getElementById("gorev-formu");
 const gorevListesi = document.getElementById("gorev-listesi");
+const filtreDugmeleri = document.querySelectorAll(
+    ".gorev-filtreleri button"
+);
+
 function gorevleriCiz() {
     gorevListesi.replaceChildren();
-    for (const gorev of gorevler) {
+    for (const gorev of gorunenGorevleriHesapla()) {
         const li = document.createElement("li");
         li.classList.add("gorev");
         li.dataset.id = gorev.id;
@@ -134,6 +138,7 @@ gorevFormu.addEventListener("submit", function (event) {
     };
 
     gorevler.push(yeniGorev);
+    aktifFiltre = "tumu";
     gorevleriCiz();
     gorevMetni.value = "";
     gorevMetni.focus();
@@ -174,11 +179,58 @@ function sayaciGuncelle() {
 }
 
 function bosMesajiGuncelle() {
-    bosMesaj.hidden = gorevler.length > 0;
+    const gorunenGorevler = gorunenGorevleriHesapla();
+    bosMesaj.hidden = gorunenGorevler.length > 0;
+
+    if (aktifFiltre === "aktif") {
+        bosMesaj.textContent = "Tamamlanmamış görevin yok.";
+    } else if (aktifFiltre === "tamamlanan") {
+        bosMesaj.textContent = "Henüz tamamladığın bir görev yok.";
+    }
+
+    else {
+        bosMesaj.textContent = "Henüz görev eklemedin.";
+    }
 }
 
 
 
 
+
+    function gorunenGorevleriHesapla() {
+        if (aktifFiltre === "tumu") {
+            return gorevler;
+        }
+
+        if (aktifFiltre === "aktif") {
+            return gorevler.filter(gorev => gorev.tamamlandi === false);
+        }
+
+        if (aktifFiltre === "tamamlanan") {
+            return gorevler.filter(gorev => gorev.tamamlandi === true);
+        }
+
+
+        return gorevler;
+    }
+
+
+function filtreGorunumunuGuncelle() {
+    for (const dugme of filtreDugmeleri) {
+        if (dugme.dataset.filtre === aktifFiltre) {
+            dugme.setAttribute("aria-pressed", "true");
+        } else {
+            dugme.setAttribute("aria-pressed", "false");
+        }
+    }
+}
+
+for (const dugme of filtreDugmeleri) {
+    dugme.addEventListener("click", function () {
+        const filtre = dugme.dataset.filtre;
+        aktifFiltre = filtre;
+        gorevleriCiz();
+    });
+}
 
 gorevleriCiz();
