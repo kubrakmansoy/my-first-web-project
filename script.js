@@ -59,6 +59,8 @@ function gorevleriCiz() {
                 : `"${ilgiliGorev.metin}" görevi yeniden aktifleştirildi.`;
 
             gorevleriCiz();
+
+            
         });
 
         
@@ -70,13 +72,36 @@ function gorevleriCiz() {
         silmeDugmesi.type = "button";
         silmeDugmesi.textContent = "Sil";
         silmeDugmesi.setAttribute("aria-label", `${gorev.metin} görevini sil`);
+
+        // Sil düğmesi , görevi diziden siliyor
+        silmeDugmesi.addEventListener("click", function () {
+            const silinecekGorev = gorevler.find(
+                kayit => kayit.id === gorev.id
+            );
+
+            if (!silinecekGorev) {
+                return;
+            }
+
+            const silinenMetin = silinecekGorev.metin;
+
+            gorevler = gorevler.filter(
+                kayit => kayit.id !== silinecekGorev.id
+            );
+
+            gorevleriCiz();
+            durumMesaji.textContent = `"${silinenMetin}" görevi silindi.`;
+        });
+
+
         li.append(checkbox);
         li.append(label);
         li.append(silmeDugmesi);
-        gorevListesi.append(li);
+        
         if (gorev.tamamlandi) {
             li.classList.add("tamamlandi");
         }
+        gorevListesi.append(li);
     }
 
     sayaciGuncelle();
