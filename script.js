@@ -1,20 +1,4 @@
 
-// const gorevFormu = document.getElementById("gorev-formu");
-// const gorevGirisi = document.getElementById("gorev-metni");
-// const gorevListesi = document.getElementById("gorev-listesi");
-// const gorevSayaci = document.getElementById("gorev-sayaci");
-// const hataMesaji = document.getElementById("gorev-hatasi");
-// const bosMesaj = document.getElementById("bos-mesaj");
-// const durumMesaji = document.getElementById("durum-mesaji");
-
-// const filtreDugmeleri = document.querySelectorAll(
-//     ".gorev-filtreleri button"
-// );
-
-// console.log(gorevFormu);
-// console.log(gorevGirisi);
-// console.log(gorevListesi);
-// console.log(filtreDugmeleri);
 
 
 let gorevler = [];
@@ -38,9 +22,9 @@ const filtreDugmeleri = document.querySelectorAll(
 function gorevleriCiz() {
     gorevListesi.replaceChildren();
     for (const gorev of gorunenGorevleriHesapla()) {
-        const li = document.createElement("li");
-        li.classList.add("gorev");
-        li.dataset.id = gorev.id;
+        const gorevSatiri = document.createElement("li");
+        gorevSatiri.classList.add("gorev");
+        gorevSatiri.dataset.id = gorev.id;
         
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -56,15 +40,40 @@ function gorevleriCiz() {
                 return;
             }
 
+            // Değişiklikten önce görevin sırasını öğren.
+            const oncekiGorevler = gorunenGorevleriHesapla();
+            const oncekiSira = oncekiGorevler.findIndex(
+                kayit => kayit.id === ilgiliGorev.id
+            );
+
             ilgiliGorev.tamamlandi = checkbox.checked;
 
-            durumMesaji.textContent = ilgiliGorev.tamamlandi
-                ? `"${ilgiliGorev.metin}" görevi tamamlandı.`
-                : `"${ilgiliGorev.metin}" görevi yeniden aktifleştirildi.`;
+            // Değişiklikten sonra görünür kalan görevleri al.
+            const yeniGorevler = gorunenGorevleriHesapla();
+
+            const gorevGorunurMu = yeniGorevler.some(
+                kayit => kayit.id === ilgiliGorev.id
+            );
+
+            let odaklanacakGorev;
+
+            if (gorevGorunurMu) {
+                odaklanacakGorev = ilgiliGorev;
+            } else {
+                odaklanacakGorev =
+                    yeniGorevler[oncekiSira] ??
+                    yeniGorevler[oncekiSira - 1];
+            }
 
             gorevleriCiz();
 
-            
+            goreveOdaklan(odaklanacakGorev, 'input[type="checkbox"]');
+
+            durumBildir(
+                ilgiliGorev.tamamlandi
+                    ? `"${ilgiliGorev.metin}" görevi tamamlandı.`
+                    : `"${ilgiliGorev.metin}" görevi yeniden aktifleştirildi.`
+            );
         });
 
         
@@ -87,6 +96,17 @@ function gorevleriCiz() {
                 return;
             }
 
+            // Silmeden önce ekranda görünen görevlerin sırasını al.
+            const gorunenGorevler = gorunenGorevleriHesapla();
+            const silinenSira = gorunenGorevler.findIndex(
+                kayit => kayit.id === silinecekGorev.id
+            );
+
+            // Önce sonraki görevi, yoksa önceki görevi seç.
+            const odaklanacakGorev =
+                gorunenGorevler[silinenSira + 1] ??
+                gorunenGorevler[silinenSira - 1];
+
             const silinenMetin = silinecekGorev.metin;
 
             gorevler = gorevler.filter(
@@ -94,22 +114,26 @@ function gorevleriCiz() {
             );
 
             gorevleriCiz();
-            durumMesaji.textContent = `"${silinenMetin}" görevi silindi.`;
+
+            goreveOdaklan(odaklanacakGorev, "button");
+
+            durumBildir(`"${silinenMetin}" görevi silindi.`);
         });
 
 
-        li.append(checkbox);
-        li.append(label);
-        li.append(silmeDugmesi);
+        gorevSatiri.append(checkbox);
+        gorevSatiri.append(label);
+        gorevSatiri.append(silmeDugmesi);
         
         if (gorev.tamamlandi) {
-            li.classList.add("tamamlandi");
+            gorevSatiri.classList.add("tamamlandi");
         }
         gorevListesi.append(li);
     }
 
     sayaciGuncelle();
     bosMesajiGuncelle();
+    filtreGorunumunuGuncelle();
 
 }
 gorevFormu.addEventListener("submit", function (event) {
@@ -143,7 +167,7 @@ gorevFormu.addEventListener("submit", function (event) {
     gorevMetni.value = "";
     gorevMetni.focus();
 
-    durumMesaji.textContent = `"${metin}" görevi eklendi.`;
+    durumBildir(`"${metin}" görevi eklendi.`);
 });
 
 function hataGoster(mesaj) {
@@ -225,11 +249,36 @@ function filtreGorunumunuGuncelle() {
     }
 }
 
+
+function durumBildir(mesaj) {
+    if (durumMesaji.textContent !== mesaj) {
+        durumMesaji.textContent = mesaj;
+    }
+}
+
+function goreveOdaklan(gorev, hedefsecici) {
+    const satir = gorev
+        ? Array.from(gorevListesi.children).find(
+            oge => oge.dataset.id === gorev.id
+        )
+        : null;
+
+    const hedef = satir?.querySelector(hedefsecici);
+
+    if (hedef) {
+        hedef.focus();
+    } else {
+        gorevMetni.focus();
+    }
+}
+
+
 for (const dugme of filtreDugmeleri) {
     dugme.addEventListener("click", function () {
         const filtre = dugme.dataset.filtre;
         aktifFiltre = filtre;
         gorevleriCiz();
+        dugme.focus();
     });
 }
 

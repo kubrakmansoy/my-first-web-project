@@ -20,29 +20,38 @@ görevlerimi takip edebildiğim bir web sitesi geliştirmek.
 - localStorage: Görevleri aynı tarayıcıda saklama.
 - Git ve GitHub: Kodun değişiklik geçmişini tutma ve paylaşma.
 
+## Tamamlanan Özellikler
+
+- Kişisel tanıtım ve proje kartlarını gösterme.
+- Ekle düğmesi veya Enter tuşuyla görev ekleme.
+- Görev metninin başındaki ve sonundaki boşlukları temizleme.
+- Boş ve 200 karakteri aşan görev metinlerini kontrol etme.
+- Hata mesajlarını gösterme ve geçerli girişte temizleme.
+- Görevleri tamamlama ve yeniden aktifleştirme.
+- Görevleri kimlikleriyle ayırt ederek silme.
+- Görevleri tümü, aktif ve tamamlanan olarak filtreleme.
+- Tamamlanmamış görev sayısını gösterme.
+- Seçili filtreye uygun boş liste mesajlarını gösterme.
+- Yeni görev eklendiğinde Tümü filtresine geçme.
+- Silme ve tamamlama sonrasında klavye odağını yönetme.
+- Ekran okuyucular için işlem bildirimleri sunma.
+- Telefon ve bilgisayar ekranlarına uyumlu tasarım.
+
 ## Planlanan Özellikler
 
-- Kişisel tanıtım bilgilerini gösterme.
-- Proje kartlarını gösterme.
-- Yeni görev ekleme.
-- Görevleri tamamlandı olarak işaretleme.
-- Görev silme.
-- Görevleri tümü, aktif ve tamamlanan olarak filtreleme.
-- Kalan görev sayısını gösterme.
-- Görevleri sayfa yenilendiğinde koruma.
-- Telefon ve bilgisayar ekranlarına uyum sağlama.
-- Klavyeyle kullanılabilme.
-- İnternette bir bağlantı üzerinden erişilebilme.
+- Görevleri localStorage ile sayfa yenilendiğinde koruma.
+- Aynı tarayıcının sekmeleri arasında görevleri güncelleme.
+- Siteyi GitHub Pages üzerinden yayımlama.
 
-## İlk Sürümün Sınırları
+## Mevcut Durum ve İlk Sürümün Sınırları
 
-- Kullanıcı hesabı ve giriş sistemi olmayacak.
-- Sunucu veritabanı kullanılmayacak.
-- Görevler localStorage ile kullanılan tarayıcıda saklanacak.
-- Görevler farklı cihazlar arasında otomatik eşitlenmeyecek.
-- Tarayıcının site verileri temizlenirse görevler silinebilecek.
-
-- Kullanıcılar görevleri paylaşamayacak veya başkalarının görevlerini göremeyecek.
+- Görevler şu anda yalnızca bellekte tutulur; sayfa yenilendiğinde silinir.
+- localStorage ile kalıcı saklama henüz eklenmemiştir.
+- Kalıcı saklama eklendiğinde görevler kullanılan tarayıcıda tutulacaktır.
+- Kullanıcı hesabı, giriş sistemi ve sunucu veritabanı bulunmayacaktır.
+- Görevler farklı cihazlar arasında otomatik eşitlenmeyecektir.
+- Kalıcı saklama eklense bile tarayıcının site verileri temizlenirse görevler silinebilecektir.
+- Kullanıcılar görevlerini paylaşamayacak veya başkalarının görevlerini göremeyecektir.
 
 ## JavaScript Alıştırmaları
 
